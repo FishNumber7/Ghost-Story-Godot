@@ -1,0 +1,133 @@
+[gd_scene load_steps=8 format=3 uid="uid://c84hq7mcm40v"]
+
+[ext_resource type="Script" path="res://scripts/controller.gd" id="1_51om8"]
+[ext_resource type="Script" path="res://addons/inkgd/ink_player.gd" id="1_ebctf"]
+[ext_resource type="SpriteFrames" uid="uid://8jnahiwy62f4" path="res://poop.tres" id="1_mdlwj"]
+[ext_resource type="Script" path="res://scripts/Video.gd" id="2_njpkn"]
+[ext_resource type="Resource" uid="uid://cqhwsh12ycvq7" path="res://stupid_story.JSON" id="3_gnpud"]
+[ext_resource type="FontFile" uid="uid://dvnsaeahuu5g1" path="res://ToThePointRegular-n9y4.ttf" id="5_qnheu"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gh4d1"]
+font = ExtResource("5_qnheu")
+font_size = 80
+
+[node name="Control" type="Control" node_paths=PackedStringArray("choice_button_one", "choice_button_two", "choice_button_three", "text_label_one", "text_label_two", "text_label_three")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_51om8")
+choice_button_one = NodePath("button 1")
+choice_button_two = NodePath("button 2")
+choice_button_three = NodePath("button 3")
+text_label_one = NodePath("label 1")
+text_label_two = NodePath("label 2")
+text_label_three = NodePath("label 3")
+
+[node name="InkPlayer" type="Node" parent="."]
+script = ExtResource("1_ebctf")
+ink_file = ExtResource("3_gnpud")
+
+[node name="video" type="AnimatedSprite2D" parent="."]
+position = Vector2(685, 504)
+sprite_frames = ExtResource("1_mdlwj")
+animation = &"darkness"
+frame_progress = 0.866287
+script = ExtResource("2_njpkn")
+
+[node name="label 1" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -457.0
+offset_right = 458.0
+offset_bottom = 251.0
+grow_horizontal = 2
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_gh4d1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label 2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -457.5
+offset_top = -312.75
+offset_right = 457.5
+offset_bottom = -61.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_gh4d1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label 3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -457.5
+offset_top = -125.5
+offset_right = 457.5
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_gh4d1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button 1" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 152.0
+offset_top = 832.0
+offset_right = 328.0
+offset_bottom = 958.0
+text = "hhi"
+
+[node name="button 2" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 832.0
+offset_right = 1216.0
+offset_bottom = 958.0
+
+[node name="button 3" type="Button" parent="."]
+visible = false
+layout_mode = 0
+offset_left = 596.0
+offset_top = 832.0
+offset_right = 772.0
+offset_bottom = 958.0
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0.415686)
+layout_mode = 0
+offset_right = 1368.0
+offset_bottom = 1000.0
+mouse_filter = 2
+
+[connection signal="continued" from="InkPlayer" to="." method="_continued"]
+[connection signal="loaded" from="InkPlayer" to="." method="_story_loaded"]
+[connection signal="prompt_choices" from="InkPlayer" to="." method="_prompt_choices"]
+[connection signal="pressed" from="button 1" to="." method="_select_choice" binds= [0]]
+[connection signal="pressed" from="button 2" to="." method="_select_choice" binds= [1]]
+[connection signal="pressed" from="button 3" to="." method="_select_choice" binds= [2]]

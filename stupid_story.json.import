@@ -1,0 +1,15 @@
+[remap]
+
+importer="inkgd.ink.json"
+type="Resource"
+uid="uid://cvdyejn8h7e41"
+path="res://.godot/imported/stupid_story.json-5d057c37fe5fa0995df89b8933822a14.res"
+
+[deps]
+
+source_file="res://stupid_story.json"
+dest_files=["res://.godot/imported/stupid_story.json-5d057c37fe5fa0995df89b8933822a14.res"]
+
+[params]
+
+compress=true

@@ -1,0 +1,14 @@
+OmniLight3D
+MeshInstance3D
+Label3D
+Node3D
+Button
+Label
+CollisionShape3D
+Area3D
+SpotLight3D
+CharacterBody3D
+Camera3D
+Marker3D
+AnimatedSprite2D
+Sprite2D

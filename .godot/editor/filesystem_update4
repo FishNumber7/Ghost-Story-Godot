@@ -1,0 +1,11 @@
+res://scripts/AreaController.gd
+res://scenes/afterlife.tscn
+res://scripts/Start.gd
+res://Resources/film.tres
+res://scripts/ColorRect.gd
+res://scenes/start_scene.tscn
+res://scenes/text1.tscn
+res://scenes/player.tscn
+res://scripts/OpenLetter.gd
+res://scripts/player.gd
+res://scripts/EnvelopeArea.gd

@@ -1,0 +1,172 @@
+[gd_scene load_steps=14 format=3 uid="uid://dogmdm8f7ynpe"]
+
+[ext_resource type="FontFile" uid="uid://dvnsaeahuu5g1" path="res://Resources/ToThePointRegular-n9y4.ttf" id="1_573jq"]
+[ext_resource type="Script" path="res://scripts/Start.gd" id="2_cxm58"]
+[ext_resource type="Script" path="res://scripts/Quit.gd" id="3_us40j"]
+[ext_resource type="SpriteFrames" uid="uid://8jnahiwy62f4" path="res://Resources/film.tres" id="4_eekav"]
+[ext_resource type="Script" path="res://scripts/Streetlights.gd" id="5_i41pi"]
+
+[sub_resource type="Gradient" id="Gradient_m2v2n"]
+colors = PackedColorArray(0.564962, 0.564962, 0.564962, 1, 1, 1, 1, 1)
+
+[sub_resource type="GradientTexture2D" id="GradientTexture2D_00kms"]
+gradient = SubResource("Gradient_m2v2n")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6hw7d"]
+font = ExtResource("1_573jq")
+font_size = 200
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="Theme" id="Theme_f6s1m"]
+default_font = ExtResource("1_573jq")
+default_font_size = 100
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_e05e1"]
+viewport_path = NodePath("Start View")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_vo36k"]
+viewport_path = NodePath("QuitView")
+
+[sub_resource type="LabelSettings" id="LabelSettings_6sikg"]
+font = ExtResource("1_573jq")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_1vr4f"]
+font = ExtResource("1_573jq")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[node name="StartScene" type="Control"]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+
+[node name="TextureRect" type="TextureRect" parent="."]
+layout_mode = 0
+offset_right = 1363.0
+offset_bottom = 1013.0
+mouse_filter = 2
+texture = SubResource("GradientTexture2D_00kms")
+
+[node name="Label" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -229.0
+offset_right = 288.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Ghost Story"
+label_settings = SubResource("LabelSettings_6hw7d")
+horizontal_alignment = 1
+
+[node name="Start" type="Button" parent="." node_paths=PackedStringArray("FadeToWhite")]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -135.5
+offset_top = -415.0
+offset_right = 137.5
+offset_bottom = -307.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_f6s1m")
+icon = SubResource("ViewportTexture_e05e1")
+script = ExtResource("2_cxm58")
+FadeToWhite = NodePath("../ColorRect")
+
+[node name="Quit" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -124.0
+offset_top = -292.0
+offset_right = 124.0
+offset_bottom = -184.0
+grow_horizontal = 2
+grow_vertical = 0
+theme = SubResource("Theme_f6s1m")
+icon = SubResource("ViewportTexture_vo36k")
+script = ExtResource("3_us40j")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 0
+offset_right = 1378.0
+offset_bottom = 1012.0
+mouse_filter = 2
+
+[node name="Streetlights" type="AnimatedSprite2D" parent="."]
+visible = false
+position = Vector2(685, 500)
+sprite_frames = ExtResource("4_eekav")
+animation = &"passing_lights"
+frame = 11
+frame_progress = 0.288158
+script = ExtResource("5_i41pi")
+
+[node name="Loading" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -229.0
+offset_right = 288.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading"
+label_settings = SubResource("LabelSettings_6hw7d")
+horizontal_alignment = 1
+
+[node name="Start View" type="SubViewport" parent="."]
+size = Vector2i(265, 100)
+
+[node name="ColorRect" type="ColorRect" parent="Start View"]
+offset_right = 500.0
+offset_bottom = 100.0
+
+[node name="StartText" type="Label" parent="Start View"]
+offset_right = 265.0
+offset_bottom = 100.0
+text = "Start Game"
+label_settings = SubResource("LabelSettings_6sikg")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="QuitView" type="SubViewport" parent="."]
+size = Vector2i(240, 100)
+
+[node name="ColorRect" type="ColorRect" parent="QuitView"]
+offset_right = 256.0
+offset_bottom = 100.0
+
+[node name="QuitText" type="Label" parent="QuitView"]
+offset_right = 240.0
+offset_bottom = 100.0
+text = "Quit Game"
+label_settings = SubResource("LabelSettings_1vr4f")
+
+[connection signal="play_streelights" from="Start" to="Streetlights" method="_on_start_play_streelights"]
+[connection signal="pressed" from="Start" to="Start" method="_on_pressed"]
+[connection signal="pressed" from="Start" to="Quit" method="_on_start_pressed"]
+[connection signal="pressed" from="Quit" to="Quit" method="_on_pressed"]

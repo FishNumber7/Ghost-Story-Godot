@@ -1,0 +1,261 @@
+[gd_scene load_steps=17 format=3 uid="uid://c84hq7mcm40v"]
+
+[ext_resource type="Script" path="res://scripts/controller.gd" id="1_haxl1"]
+[ext_resource type="Script" path="res://addons/inkgd/ink_player.gd" id="2_evbaf"]
+[ext_resource type="Resource" uid="uid://b4pbxwhgf3kvo" path="res://text_1_story.json" id="3_ju8a2"]
+[ext_resource type="SpriteFrames" uid="uid://8jnahiwy62f4" path="res://Resources/film.tres" id="4_optyj"]
+[ext_resource type="Script" path="res://scripts/Video.gd" id="5_ge1hl"]
+[ext_resource type="FontFile" uid="uid://dvnsaeahuu5g1" path="res://Resources/ToThePointRegular-n9y4.ttf" id="6_7nn2l"]
+[ext_resource type="Script" path="res://scripts/ChoiceButtons.gd" id="7_3nb2p"]
+[ext_resource type="Script" path="res://scripts/ColorRect_text.gd" id="8_ffuh4"]
+[ext_resource type="Script" path="res://scripts/Label_space.gd" id="9_7t16i"]
+
+[sub_resource type="LabelSettings" id="LabelSettings_gh4d1"]
+font = ExtResource("6_7nn2l")
+font_size = 80
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_mglva"]
+viewport_path = NodePath("button 1 view")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_cqs6b"]
+viewport_path = NodePath("button 2 view")
+
+[sub_resource type="ViewportTexture" id="ViewportTexture_5vw3v"]
+viewport_path = NodePath("button 3 view")
+
+[sub_resource type="LabelSettings" id="LabelSettings_j0hp4"]
+font = ExtResource("6_7nn2l")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_apjp0"]
+font = ExtResource("6_7nn2l")
+font_size = 200
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8q7ck"]
+font = ExtResource("6_7nn2l")
+font_size = 30
+
+[node name="Control" type="Control" node_paths=PackedStringArray("choice_button_one", "choice_button_two", "choice_button_three", "text_label_one", "text_label_two", "text_label_three")]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_haxl1")
+choice_button_one = NodePath("button 1")
+choice_button_two = NodePath("button 2")
+choice_button_three = NodePath("button 3")
+text_label_one = NodePath("label 1")
+text_label_two = NodePath("label 2")
+text_label_three = NodePath("label 3")
+
+[node name="InkPlayer" type="Node" parent="."]
+script = ExtResource("2_evbaf")
+ink_file = ExtResource("3_ju8a2")
+
+[node name="video" type="AnimatedSprite2D" parent="."]
+position = Vector2(685, 504)
+sprite_frames = ExtResource("4_optyj")
+animation = &"streetlights"
+frame_progress = 0.56711
+script = ExtResource("5_ge1hl")
+
+[node name="label 1" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 5
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -457.0
+offset_right = 458.0
+offset_bottom = 251.0
+grow_horizontal = 2
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_gh4d1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label 2" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -457.5
+offset_top = -312.75
+offset_right = 457.5
+offset_bottom = -61.75
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_gh4d1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="label 3" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -457.5
+offset_top = -125.5
+offset_right = 457.5
+offset_bottom = 125.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "Hello
+"
+label_settings = SubResource("LabelSettings_gh4d1")
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="button 1" type="Button" parent="." node_paths=PackedStringArray("content")]
+visible = false
+layout_mode = 0
+offset_left = 152.0
+offset_top = 832.0
+offset_right = 328.0
+offset_bottom = 958.0
+icon = SubResource("ViewportTexture_mglva")
+script = ExtResource("7_3nb2p")
+content = NodePath("../button 1 view/b1 text")
+
+[node name="button 2" type="Button" parent="." node_paths=PackedStringArray("content")]
+visible = false
+layout_mode = 0
+offset_left = 1040.0
+offset_top = 832.0
+offset_right = 1216.0
+offset_bottom = 958.0
+icon = SubResource("ViewportTexture_cqs6b")
+script = ExtResource("7_3nb2p")
+content = NodePath("../button 2 view/b2 text")
+
+[node name="button 3" type="Button" parent="." node_paths=PackedStringArray("content")]
+visible = false
+layout_mode = 0
+offset_left = 596.0
+offset_top = 832.0
+offset_right = 772.0
+offset_bottom = 958.0
+icon = SubResource("ViewportTexture_5vw3v")
+script = ExtResource("7_3nb2p")
+content = NodePath("../button 3 view/b3 text")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+layout_mode = 0
+offset_right = 1368.0
+offset_bottom = 1000.0
+mouse_filter = 2
+script = ExtResource("8_ffuh4")
+
+[node name="Space" type="Label" parent="."]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -55.5
+offset_top = -50.0
+offset_right = 55.5
+offset_bottom = 50.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_j0hp4")
+script = ExtResource("9_7t16i")
+
+[node name="Loading" type="Label" parent="."]
+modulate = Color(1, 1, 1, 0)
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -288.0
+offset_top = -229.0
+offset_right = 288.0
+offset_bottom = -29.0
+grow_horizontal = 2
+grow_vertical = 2
+text = "Loading"
+label_settings = SubResource("LabelSettings_apjp0")
+horizontal_alignment = 1
+
+[node name="button 1 view" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(176, 126)
+
+[node name="b1 text" type="Label" parent="button 1 view"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_8q7ck")
+
+[node name="button 2 view" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(176, 126)
+
+[node name="b2 text" type="Label" parent="button 2 view"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "hihi"
+label_settings = SubResource("LabelSettings_8q7ck")
+
+[node name="button 3 view" type="SubViewport" parent="."]
+transparent_bg = true
+size = Vector2i(176, 126)
+
+[node name="b3 text" type="Label" parent="button 3 view"]
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -11.5
+offset_right = 20.0
+offset_bottom = 11.5
+grow_horizontal = 2
+grow_vertical = 2
+text = "hihi"
+label_settings = SubResource("LabelSettings_8q7ck")
+
+[connection signal="interacted" from="." to="ColorRect" method="_on_control_interacted"]
+[connection signal="interacted" from="." to="Space" method="_on_control_interacted"]
+[connection signal="continued" from="InkPlayer" to="." method="_continued"]
+[connection signal="ended" from="InkPlayer" to="." method="_ended"]
+[connection signal="loaded" from="InkPlayer" to="." method="_story_loaded"]
+[connection signal="prompt_choices" from="InkPlayer" to="." method="_prompt_choices"]
+[connection signal="pressed" from="button 1" to="." method="_select_choice" binds= [0]]
+[connection signal="pressed" from="button 2" to="." method="_select_choice" binds= [1]]
+[connection signal="pressed" from="button 3" to="." method="_select_choice" binds= [2]]
+[connection signal="story_ready" from="ColorRect" to="." method="_story_ready"]

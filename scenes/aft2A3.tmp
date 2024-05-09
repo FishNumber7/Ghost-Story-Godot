@@ -1,0 +1,609 @@
+[gd_scene load_steps=38 format=3 uid="uid://dyeeme8hpxxr6"]
+
+[ext_resource type="SpriteFrames" uid="uid://8jnahiwy62f4" path="res://Resources/film.tres" id="1_vgway"]
+[ext_resource type="Script" path="res://scripts/EnvelopeArea.gd" id="2_tny30"]
+[ext_resource type="Script" path="res://scripts/AnimatedSprite3D.gd" id="2_u4vvb"]
+[ext_resource type="Script" path="res://scripts/ColorRect.gd" id="3_68c8t"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_0grhv"]
+[ext_resource type="FontFile" uid="uid://dvnsaeahuu5g1" path="res://Resources/ToThePointRegular-n9y4.ttf" id="4_ka5sh"]
+[ext_resource type="Script" path="res://scripts/Tooltip.gd" id="5_8780b"]
+[ext_resource type="PackedScene" uid="uid://kvpdg8qdmoaw" path="res://envelope_3d_model_free/scene.gltf" id="5_avxk1"]
+[ext_resource type="Script" path="res://scripts/Interact.gd" id="6_a7jej"]
+[ext_resource type="Script" path="res://scripts/Interact_text.gd" id="8_qigpv"]
+[ext_resource type="Script" path="res://scripts/AreaController.gd" id="9_431pm"]
+[ext_resource type="Script" path="res://scripts/Envelope.gd" id="10_btoah"]
+[ext_resource type="Script" path="res://scripts/Door.gd" id="11_mknxt"]
+[ext_resource type="Script" path="res://scripts/Envelope2.gd" id="14_sbmxw"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cl8rd"]
+size = Vector3(3, 1, 7)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qjgpy"]
+size = Vector3(7, 1, 1)
+
+[sub_resource type="BoxMesh" id="BoxMesh_aivbr"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_ydobo"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_gswq5"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="LabelSettings" id="LabelSettings_4akpw"]
+font = ExtResource("4_ka5sh")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_8di2o"]
+font = ExtResource("4_ka5sh")
+font_size = 60
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="LabelSettings" id="LabelSettings_mw5j8"]
+font = ExtResource("4_ka5sh")
+font_size = 100
+font_color = Color(0, 0, 0, 1)
+
+[sub_resource type="CapsuleMesh" id="CapsuleMesh_eab18"]
+
+[sub_resource type="ConvexPolygonShape3D" id="ConvexPolygonShape3D_1x7g4"]
+points = PackedVector3Array(-0.125207, -0.532801, -0.480507, 0.0227831, 0.47607, 0.498884, 0.169713, 0.559144, 0.464172, 0.231051, -0.803591, 0.320455, 0.40741, 0.651043, -0.243523, -0.482789, 0.594843, 0.0822132, -0.362868, -0.682312, 0.289697, 0.469044, -0.654529, -0.0662713, -0.127444, 0.842701, -0.338103, -0.393435, -0.683942, -0.244717, 0.438255, 0.623309, 0.200849, 0.0841477, 0.977454, 0.114795, -0.0682023, -0.976458, -0.12927, 0.20055, -0.563129, -0.451454, -0.185527, 0.595453, -0.453475, -0.273363, 0.592268, 0.407754, -0.00693649, -0.476823, 0.49966, 0.375821, -0.588614, 0.316955, 0.111579, 0.563059, -0.481177, -0.41725, 0.527866, -0.270497, -0.484546, -0.596972, -0.0665097, -0.279747, 0.908561, 0.0533361, -0.250197, -0.880712, 0.205319, 0.263647, -0.902771, -0.127394, 0.293368, 0.871526, -0.157196, 0.373412, -0.526319, -0.328246, 0.499663, 0.476641, -0.00688856, 0.0531056, 0.875001, 0.324703, -0.154543, -0.590854, 0.465879, -0.0972799, -0.782358, -0.398188, -0.387649, -0.498171, 0.31565, -0.30068, -0.587995, -0.388901)
+
+[sub_resource type="BoxMesh" id="BoxMesh_e4787"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_g6ac5"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_3y081"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_q7wl1"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_h6rgn"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_dbyjo"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_go5n7"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_71l8s"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[sub_resource type="BoxMesh" id="BoxMesh_vdira"]
+
+[sub_resource type="CylinderMesh" id="CylinderMesh_nkbxk"]
+
+[sub_resource type="SphereMesh" id="SphereMesh_4endq"]
+
+[sub_resource type="BoxMesh" id="BoxMesh_m4j0b"]
+
+[sub_resource type="ConcavePolygonShape3D" id="ConcavePolygonShape3D_o2wl5"]
+data = PackedVector3Array(-0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, -0.5, 0.5, -0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, 0.5, -0.5, 0.5, 0.5, 0.5, 0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, 0.5, 0.5, -0.5, 0.5, -0.5, -0.5, -0.5, 0.5, -0.5, 0.5, 0.5, -0.5, -0.5, -0.5, -0.5, -0.5)
+
+[node name="3d" type="Node3D"]
+
+[node name="Interact_Areas" type="Node3D" parent="."]
+script = ExtResource("9_431pm")
+
+[node name="Area1" type="Area3D" parent="Interact_Areas"]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -7, 0, 9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact_Areas/Area1"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+shape = SubResource("BoxShape3D_cl8rd")
+
+[node name="Area2" type="Area3D" parent="Interact_Areas"]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, 0, 0, 1)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact_Areas/Area2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+shape = SubResource("BoxShape3D_cl8rd")
+
+[node name="Area3" type="Area3D" parent="Interact_Areas"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 8, 0, 9)
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact_Areas/Area3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+shape = SubResource("BoxShape3D_cl8rd")
+
+[node name="Area4" type="Area3D" parent="Interact_Areas"]
+transform = Transform3D(5.66234e-08, 0, -0.75, 0, 0.75, 0, 0.75, 0, 5.66234e-08, 0, 0, 16)
+script = ExtResource("2_tny30")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Interact_Areas/Area4"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1, 0, 0)
+shape = SubResource("BoxShape3D_cl8rd")
+
+[node name="Envelope Area 2" type="Area3D" parent="."]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Envelope Area 2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 49)
+shape = SubResource("BoxShape3D_qjgpy")
+
+[node name="Floor" type="MeshInstance3D" parent="."]
+transform = Transform3D(93.309, 0, 0, 0, 1, 0, 0, 0, 50.1096, -0.230358, -0.864329, -2.8034)
+mesh = SubResource("BoxMesh_aivbr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ydobo")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Floor"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_gswq5")
+
+[node name="Floor2" type="MeshInstance3D" parent="."]
+transform = Transform3D(93.309, 0, 0, 0, 1, 0, 0, 0, 50.1096, -0.230358, -0.864329, 45.9656)
+mesh = SubResource("BoxMesh_aivbr")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Floor2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_ydobo")
+
+[node name="StaticBody3D2" type="StaticBody3D" parent="Floor2"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Floor2/StaticBody3D2"]
+shape = SubResource("ConcavePolygonShape3D_gswq5")
+
+[node name="AnimatedSprite3D" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(0.5, 0, 0, 0, 0.5, 0, 0, 0, 0.5, 0, 2.87492, 0.54367)
+sprite_frames = ExtResource("1_vgway")
+animation = &"darkness"
+script = ExtResource("2_u4vvb")
+sequence = "darkness"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="AnimatedSprite3D"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2)
+light_color = Color(0.168627, 0, 0.631373, 1)
+spot_range = 15.537
+spot_attenuation = 0.707104
+spot_angle = 145.14
+spot_angle_attenuation = 0.870557
+
+[node name="AnimatedSprite3D2" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, -0.5, 0, 0.5, 0, 0.5, 0, -2.18557e-08, 8.482, 2.875, 9)
+sprite_frames = ExtResource("1_vgway")
+animation = &"passing_lights"
+script = ExtResource("2_u4vvb")
+sequence = "passing_lights"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="AnimatedSprite3D2"]
+transform = Transform3D(1.93185, 0, -0.517638, 0, 2, 0, 0.517638, 0, 1.93185, 0, 0, 2)
+light_color = Color(0.360784, 0, 0.396078, 1)
+spot_range = 15.537
+spot_attenuation = 0.707104
+spot_angle = 145.14
+spot_angle_attenuation = 0.870557
+
+[node name="AnimatedSprite3D3" type="AnimatedSprite3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, -8.51102, 2.875, 9)
+sprite_frames = ExtResource("1_vgway")
+animation = &"darkness"
+script = ExtResource("2_u4vvb")
+sequence = "emily"
+
+[node name="SpotLight3D" type="SpotLight3D" parent="AnimatedSprite3D3"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, 2)
+light_color = Color(0, 0.313726, 0.247059, 1)
+spot_range = 15.537
+spot_attenuation = 0.707104
+spot_angle = 145.14
+spot_angle_attenuation = 0.870557
+
+[node name="HUD" type="CanvasLayer" parent="."]
+
+[node name="ColorRect" type="ColorRect" parent="HUD"]
+offset_right = 1728.0
+offset_bottom = 1080.0
+mouse_filter = 2
+script = ExtResource("3_68c8t")
+
+[node name="Tooltip" type="Label" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -300.0
+offset_top = -188.0
+offset_right = 300.0
+offset_bottom = -88.0
+grow_horizontal = 2
+grow_vertical = 0
+label_settings = SubResource("LabelSettings_4akpw")
+horizontal_alignment = 1
+script = ExtResource("5_8780b")
+
+[node name="Interact" type="Label" parent="HUD"]
+visible = false
+anchors_preset = 7
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -373.0
+offset_top = -131.0
+offset_right = 363.0
+offset_bottom = -71.0
+grow_horizontal = 2
+grow_vertical = 0
+text = "Press E to Interact"
+label_settings = SubResource("LabelSettings_8di2o")
+horizontal_alignment = 1
+script = ExtResource("6_a7jej")
+
+[node name="Interact Text" type="Label" parent="HUD"]
+modulate = Color(1, 1, 1, 0)
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -685.0
+offset_top = 91.0
+offset_right = 685.0
+offset_bottom = 191.0
+grow_horizontal = 2
+grow_vertical = 2
+label_settings = SubResource("LabelSettings_mw5j8")
+horizontal_alignment = 1
+script = ExtResource("8_qigpv")
+
+[node name="Player" type="CharacterBody3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.652161, 9.04812)
+script = ExtResource("4_0grhv")
+
+[node name="Pivot" type="Node3D" parent="Player"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.518762, 0)
+
+[node name="Camera3D" type="Camera3D" parent="Player/Pivot"]
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Player"]
+mesh = SubResource("CapsuleMesh_eab18")
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Player"]
+shape = SubResource("ConvexPolygonShape3D_1x7g4")
+
+[node name="Ceiling" type="MeshInstance3D" parent="."]
+transform = Transform3D(17.688, 0, 0, 0, 1.2, 0, 0, 0, 96.1151, 0, 8, 20)
+mesh = SubResource("BoxMesh_e4787")
+
+[node name="RealWall" type="Node3D" parent="."]
+
+[node name="WallMesh" type="MeshInstance3D" parent="RealWall"]
+transform = Transform3D(17.4188, 0, 0, 0, 8.8, 0, 0, 0, 0.929, 0, 3, 0)
+mesh = SubResource("BoxMesh_g6ac5")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RealWall/WallMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RealWall/WallMesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3y081")
+
+[node name="Light Object1" type="MeshInstance3D" parent="RealWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWall/Light Object1"]
+
+[node name="Light Object2" type="MeshInstance3D" parent="RealWall"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWall/Light Object2"]
+
+[node name="RealWall2" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9, 0, 9)
+
+[node name="WallMesh" type="MeshInstance3D" parent="RealWall2"]
+transform = Transform3D(17.4188, 0, 0, 0, 8.8, 0, 0, 0, 0.929, 0, 3, 0)
+mesh = SubResource("BoxMesh_g6ac5")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RealWall2/WallMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RealWall2/WallMesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3y081")
+
+[node name="Light Object1" type="MeshInstance3D" parent="RealWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWall2/Light Object1"]
+
+[node name="Light Object2" type="MeshInstance3D" parent="RealWall2"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWall2/Light Object2"]
+
+[node name="RealWall3" type="Node3D" parent="."]
+transform = Transform3D(-4.37114e-08, 0, -1, 0, 1, 0, 1, 0, -4.37114e-08, 9, 0, 9)
+
+[node name="WallMesh" type="MeshInstance3D" parent="RealWall3"]
+transform = Transform3D(17.4188, 0, 0, 0, 8.8, 0, 0, 0, 0.929, 0, 3, 0)
+mesh = SubResource("BoxMesh_g6ac5")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RealWall3/WallMesh"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RealWall3/WallMesh/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_3y081")
+
+[node name="Light Object1" type="MeshInstance3D" parent="RealWall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWall3/Light Object1"]
+
+[node name="Light Object2" type="MeshInstance3D" parent="RealWall3"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWall3/Light Object2"]
+
+[node name="Envelope" type="Node3D" parent="."]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 0, 1.5, 17)
+script = ExtResource("10_btoah")
+
+[node name="Sketchfab_Scene" parent="Envelope" instance=ExtResource("5_avxk1")]
+transform = Transform3D(-5.35353e-11, 0.000965926, 0.000258819, 3.09086e-11, 0.000258819, -0.000965926, -0.001, -4.37114e-11, -4.37114e-11, 0, -0.655283, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Envelope"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.75, 0, 0)
+light_color = Color(0.421523, 0, 0.0425142, 1)
+light_energy = 2.0
+
+[node name="Pedestal" type="MeshInstance3D" parent="Envelope"]
+transform = Transform3D(2, 0, 0, 0, 2.9568, 0, 0, 0, 2, 0, -3, 0)
+mesh = SubResource("BoxMesh_h6rgn")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Envelope/Pedestal"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Envelope/Pedestal/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dbyjo")
+
+[node name="RealWallDoor" type="Node3D" parent="."]
+transform = Transform3D(-1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 18)
+
+[node name="Light Object1" type="MeshInstance3D" parent="RealWallDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWallDoor/Light Object1"]
+
+[node name="Light Object2" type="MeshInstance3D" parent="RealWallDoor"]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 6, 3, 0.5)
+mesh = SubResource("SphereMesh_q7wl1")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="RealWallDoor/Light Object2"]
+
+[node name="Wall1" type="MeshInstance3D" parent="RealWallDoor"]
+transform = Transform3D(5.803, 0, 0, 0, 8.8, 0, 0, 0, 0.929, -6, 3, 0)
+mesh = SubResource("BoxMesh_go5n7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RealWallDoor/Wall1"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RealWallDoor/Wall1/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_71l8s")
+
+[node name="Door" type="MeshInstance3D" parent="RealWallDoor"]
+transform = Transform3D(5.803, 0, 0, 0, 8.8, 0, 0, 0, 0.929, 0, 3, 0)
+mesh = SubResource("BoxMesh_go5n7")
+script = ExtResource("11_mknxt")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RealWallDoor/Door"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RealWallDoor/Door/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_71l8s")
+
+[node name="Wall3" type="MeshInstance3D" parent="RealWallDoor"]
+transform = Transform3D(5.803, 0, 0, 0, 8.8, 0, 0, 0, 0.929, 6, 3, 0)
+mesh = SubResource("BoxMesh_go5n7")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="RealWallDoor/Wall3"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="RealWallDoor/Wall3/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_71l8s")
+
+[node name="Hallway" type="Node3D" parent="."]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4, 0, 18)
+
+[node name="Wall1" type="MeshInstance3D" parent="Hallway"]
+transform = Transform3D(1, 0, 0, 0, 8.8, 0, 0, 0, 49.3578, 0, 4, 25)
+mesh = SubResource("BoxMesh_vdira")
+
+[node name="Wall2" type="MeshInstance3D" parent="Hallway"]
+transform = Transform3D(1, 0, 0, 0, 8.8, 0, 0, 0, 49.3578, 8, 4, 25)
+mesh = SubResource("BoxMesh_vdira")
+
+[node name="HangingLight1" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 5)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight1"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight1"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight1/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight2" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 10)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight2"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight2"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight2/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight3" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 15)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight3"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight3"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight3/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight4" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 20)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight4"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight4"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight4/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight5" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 25)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight5"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight5"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight5/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight6" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 30)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight6"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight6"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight6/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight7" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 35)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight7"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight7"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight7/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight8" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 40)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight8"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight8"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight8/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="HangingLight9" type="Node3D" parent="Hallway"]
+transform = Transform3D(0.2, 0, 0, 0, 1, 0, 0, 0, 0.2, 4, 7.5, 45)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway/HangingLight9"]
+mesh = SubResource("CylinderMesh_nkbxk")
+skeleton = NodePath("../..")
+
+[node name="MeshInstance3D2" type="MeshInstance3D" parent="Hallway/HangingLight9"]
+transform = Transform3D(5.2, 0, 0, 0, 1.105, 0, 0, 0, 5.2, 0, -1.49, 0)
+mesh = SubResource("SphereMesh_4endq")
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/HangingLight9/MeshInstance3D2"]
+light_color = Color(0.545098, 0.101961, 0.741176, 1)
+
+[node name="MeshInstance3D" type="MeshInstance3D" parent="Hallway"]
+transform = Transform3D(31.08, 0, 0, 0, 15.05, 0, 0, 0, 1, 0, 0, 50)
+mesh = SubResource("BoxMesh_m4j0b")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hallway/MeshInstance3D"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallway/MeshInstance3D/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_o2wl5")
+
+[node name="Envelope" type="Node3D" parent="Hallway"]
+transform = Transform3D(-2.18557e-08, 0, 0.5, 0, 0.5, 0, -0.5, 0, -2.18557e-08, 4, 1.5, 49)
+script = ExtResource("14_sbmxw")
+
+[node name="Sketchfab_Scene" parent="Hallway/Envelope" instance=ExtResource("5_avxk1")]
+transform = Transform3D(-5.35353e-11, 0.000965926, 0.000258819, 3.09086e-11, 0.000258819, -0.000965926, -0.001, -4.37114e-11, -4.37114e-11, 0, -0.655283, 0)
+
+[node name="OmniLight3D" type="OmniLight3D" parent="Hallway/Envelope"]
+transform = Transform3D(2, 0, 0, 0, 2, 0, 0, 0, 2, 0.75, 0, 0)
+light_color = Color(0, 0.721569, 0.627451, 1)
+light_energy = 2.0
+
+[node name="Pedestal" type="MeshInstance3D" parent="Hallway/Envelope"]
+transform = Transform3D(2, 0, 0, 0, 2.9568, 0, 0, 0, 2, 0, -3, 0)
+mesh = SubResource("BoxMesh_h6rgn")
+skeleton = NodePath("../..")
+
+[node name="StaticBody3D" type="StaticBody3D" parent="Hallway/Envelope/Pedestal"]
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="Hallway/Envelope/Pedestal/StaticBody3D"]
+shape = SubResource("ConcavePolygonShape3D_dbyjo")
+
+[connection signal="activate_door" from="Interact_Areas" to="HUD/Interact" method="_disable_interact_envelope"]
+[connection signal="activate_door" from="Interact_Areas" to="HUD/Interact Text" method="_disconnect_envelope"]
+[connection signal="activate_door" from="Interact_Areas" to="Envelope" method="_activate_door"]
+[connection signal="activate_door" from="Interact_Areas" to="RealWallDoor/Door" method="_activate_door"]
+[connection signal="connect_envelope" from="Interact_Areas" to="HUD/Interact Text" method="_connect_envelope"]
+[connection signal="interact_display" from="Interact_Areas" to="HUD/Interact" method="_interact_display"]
+[connection signal="interact_hide" from="Interact_Areas" to="HUD/Interact" method="_on_areas_interact_hide"]
+[connection signal="body_entered" from="Interact_Areas/Area1" to="Interact_Areas" method="_on_area_body_entered" binds= [0]]
+[connection signal="body_entered" from="Interact_Areas/Area1" to="HUD/Interact Text" method="_on_body_entered" binds= ["\"It's that figure\""]]
+[connection signal="body_exited" from="Interact_Areas/Area1" to="Interact_Areas" method="_on_area_body_exited"]
+[connection signal="body_exited" from="Interact_Areas/Area1" to="HUD/Interact Text" method="_on_body_exited"]
+[connection signal="body_entered" from="Interact_Areas/Area2" to="Interact_Areas" method="_on_area_body_entered" binds= [1]]
+[connection signal="body_entered" from="Interact_Areas/Area2" to="HUD/Interact Text" method="_on_body_entered" binds= ["\"Where was I?\""]]
+[connection signal="body_exited" from="Interact_Areas/Area2" to="Interact_Areas" method="_on_area_body_exited"]
+[connection signal="body_exited" from="Interact_Areas/Area2" to="HUD/Interact Text" method="_on_body_exited"]
+[connection signal="body_entered" from="Interact_Areas/Area3" to="Interact_Areas" method="_on_area_body_entered" binds= [2]]
+[connection signal="body_entered" from="Interact_Areas/Area3" to="HUD/Interact Text" method="_on_body_entered" binds= ["\"I don't understand\""]]
+[connection signal="body_exited" from="Interact_Areas/Area3" to="Interact_Areas" method="_on_area_body_exited"]
+[connection signal="body_exited" from="Interact_Areas/Area3" to="HUD/Interact Text" method="_on_body_exited"]
+[connection signal="body_entered" from="Interact_Areas/Area4" to="Interact_Areas/Area4" method="_on_body_entered"]
+[connection signal="body_exited" from="Interact_Areas/Area4" to="Interact_Areas" method="_on_area_body_exited"]
+[connection signal="body_exited" from="Interact_Areas/Area4" to="HUD/Interact Text" method="_on_body_exited"]
+[connection signal="body_entered" from="Envelope Area 2" to="Hallway/Envelope" method="_lift_pedestal"]
+[connection signal="start" from="HUD/ColorRect" to="HUD/Tooltip" method="_on_start"]
+[connection signal="start" from="HUD/ColorRect" to="Player" method="_on_start"]
+[connection signal="label_finished" from="HUD/Tooltip" to="HUD/Interact" method="_on_tooltip_label_finished"]
+[connection signal="label_finished" from="HUD/Tooltip" to="HUD/Interact Text" method="_on_finished"]
+[connection signal="interacted" from="Player" to="Interact_Areas" method="_on_player_interacted"]
+[connection signal="interacted" from="Player" to="HUD/Interact Text" method="_on_interacted"]

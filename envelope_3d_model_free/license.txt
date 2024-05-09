@@ -1,0 +1,11 @@
+Model Information:
+* title:	Envelope 3D model free
+* source:	https://sketchfab.com/3d-models/envelope-3d-model-free-2e720561fd3745549fe6b3143d1f8b48
+* author:	SixGames (https://sketchfab.com/SixGames)
+
+Model License:
+* license type:	CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
+* requirements:	Author must be credited. Commercial use is allowed.
+
+If you use this 3D model in your project be sure to copy paste this credit wherever you share it:
+This work is based on "Envelope 3D model free" (https://sketchfab.com/3d-models/envelope-3d-model-free-2e720561fd3745549fe6b3143d1f8b48) by SixGames (https://sketchfab.com/SixGames) licensed under CC-BY-4.0 (http://creativecommons.org/licenses/by/4.0/)
